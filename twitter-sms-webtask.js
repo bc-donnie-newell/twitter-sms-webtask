@@ -1,6 +1,6 @@
 module.exports = function (context, cb) {
     console.log('starting webtask');
-    if (!context.headers['authentication'] || context.headers['authentication'] !== context.secrets.apiToken) {
+    if (!context.headers['authorization'] || context.headers['authorization'] !== context.secrets.apiToken) {
         console.log('Unauthorized request.');
         cb(null, 'You\'re not authorized to do that!');
     } else {
